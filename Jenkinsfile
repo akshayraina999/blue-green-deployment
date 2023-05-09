@@ -38,6 +38,16 @@ pipeline{
             }
         }
 
+        stage("Transferring files to Kubernetes Server"){
+            steps{
+                echo "========Transferring files to Kubernetes Server========"
+                sshagent(['kubernetes_server']){
+                    sh 'ssh -o StrictHostKeyChecking=no root@172.16.14.131 cd /home/akshay/Kubernetes/blue-green'
+                    sh "scp /var/lib/jenkins/workspace/${JOB_NAME}/* root@172.16.14.131:/home/akshay/Kubernetes/blue-green"
+                }
+            }
+        }
+
         stage("Deploying Blue and green deployment on Kubernetes"){
             steps{
                 echo "========Deploying on Kubernetes Server========"
