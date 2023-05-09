@@ -1,0 +1,5 @@
+- hosts: kubernetes
+  become: false
+  tasks:
+    - name: Deploying blue service file
+      command: kubectl apply -f blue-service.yml

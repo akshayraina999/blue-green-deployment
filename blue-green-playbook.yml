@@ -1,0 +1,9 @@
+- hosts: kubernetes
+  become: false
+  tasks:
+    - name: Deploying blue deployment
+      command: kubectl apply -f blue-deployment.yml
+    
+    - name: Deploying green deployment
+      command: kubectl apply -f green-deployment.yml
+
