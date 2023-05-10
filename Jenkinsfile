@@ -62,7 +62,7 @@ pipeline{
             steps{
                 echo "========Deploying on Kubernetes Server========"
                 sshagent(['kubernetes_server']){
-                    sh 'ssh -o StrictHostKeyChecking=no root@10.83.191.88 ansible-playbook /home/ubuntu/blue-green-deployment/blue-service.yml'
+                    sh 'ssh -o StrictHostKeyChecking=no root@10.83.191.88 ansible-playbook /home/ubuntu/blue-green-deployment/blue-service-playbook.yml'
                 }
             }
         }
@@ -76,7 +76,7 @@ pipeline{
             steps{
                 echo "========Deploying on Kubernetes Server========"
                 sshagent(['kubernetes_server']){
-                    sh 'ssh -o StrictHostKeyChecking=no root@10.83.191.88 ansible-playbook /home/ubuntu/blue-green-deployment/green-service.yml'
+                    sh 'ssh -o StrictHostKeyChecking=no root@10.83.191.88 ansible-playbook /home/ubuntu/blue-green-deployment/green-service-playbook.yml'
                 }
             }
         }   
