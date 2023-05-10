@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: bluegreenloadbalancer
 spec:
+  type: LoadBalancer
   selector:
     app: blue
   ports:
-    - port: 8000
-      targetPort: 80
-  type: LoadBalancer
+  - port: 8000
+    targetPort: 80
