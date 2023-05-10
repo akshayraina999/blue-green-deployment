@@ -2,4 +2,4 @@
   become: false
   tasks:
     - name: Deploying blue service file
-      command: kubectl apply -f blue-service.yml
+      command: kubectl apply -f /home/akshay/Kubernetes/blue-green/blue-service.yml
